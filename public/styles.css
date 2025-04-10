@@ -1,0 +1,62 @@
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+.bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+.logo {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #23a6d5, #23d5ab);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+.card-title {
+    font-weight: 600;
+    color: #333;
+}
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+}
+.btn-primary {
+    background: linear-gradient(45deg, #23a6d5, #23d5ab);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 500;
+}
+.btn-primary:hover {
+    background: linear-gradient(45deg, #1e95c1, #1fb98e);
+}
+.attribution {
+    font-size: 0.9rem;
+    color: #333;
+    text-align: center;
+    margin-top: 15px;
+}

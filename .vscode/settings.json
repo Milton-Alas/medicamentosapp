@@ -1,0 +1,22 @@
+{
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.aI.enableCodebaseIndexing": true,
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "ep-restless-leaf-a5m23i1w-pooler.us-east-2.aws.neon.tech",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "medicamentos",
+            "database": "medicamentos",
+            "username": "neondb_owner",
+            "password": "n5SYpDr6wGzE",
+            "group": "ss"
+        }
+    ]
+}
