@@ -5,7 +5,7 @@
 
 MediGest es una aplicación web diseñada para la gestión eficiente de inventarios de medicamentos y generación de recetas médicas. Permite a los usuarios registrar, editar, visualizar y eliminar medicamentos, así como crear recetas médicas en formato PDF.
 
-![Login Screen](screenshots/login-screen.png)
+![Login Screen](https://github.com/Milton-Alas/medicamentosapp/blob/main/images_funcionalidad/login.png)
 
 ## ✨ Características
 
@@ -24,16 +24,16 @@ MediGest es una aplicación web diseñada para la gestión eficiente de inventar
 ## 🖼️ Capturas de Pantalla
 
 ### Pantalla de Login
-![Login Screen](screenshots/login-screen.png)
+![Login Screen](https://github.com/Milton-Alas/medicamentosapp/blob/main/images_funcionalidad/login.png)
+
 
 ### Lista de Medicamentos
-![Medicines Inventory](screenshots/medicines-inventory.png)
-
+![Medicines Inventory](https://github.com/Milton-Alas/medicamentosapp/blob/main/images_funcionalidad/Inicio.png)
 ### Detalles de Medicamento
-![Medicine Details](screenshots/medicine-details.png)
+![Medicine Details](https://github.com/Milton-Alas/medicamentosapp/blob/main/images_funcionalidad/Detalle.png)
 
 ### Modal de Edición
-![Edit Modal](screenshots/edit-modal.png)
+![Edit Modal](https://github.com/Milton-Alas/medicamentosapp/blob/main/images_funcionalidad/editar-medicamento.png)
 
 ## 🛠️ Tecnologías Utilizadas
 
