@@ -3,8 +3,6 @@ const path = require('path');
 const db = require('./dbUser');
 require('dotenv').config();
 
-
-
 const app = express();
 const port = parseInt(process.env.PORT) || process.argv[3] || 8080;
 
@@ -13,15 +11,8 @@ const session = require('express-session');
 // Middleware para parsear application/json
 //app.use(bodyParser.json());
 //app.use(express.json());
-//app.use(express.json()); //se elimino para poder usar el bodyparser
-
-app.use(express.urlencoded({ extended: true }));
-app.use(session({
-  secret: 'tu_secreto_aqui', // Clave secreta para firmar la cookie de sesión
-  resave: false,              // Evita que se vuelva a guardar la sesión si no ha cambiado
-  saveUninitialized: true,    // Guarda sesiones nuevas pero aún no inicializadas en la memoria
-  cookie: { secure: false }   // Configuración de la cookie de sesión
-}));
+app.use(express.json()); //se elimino para poder usar el bodyparser
+app.use(express.urlencoded({ extended: true })); 
 
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -59,13 +50,13 @@ app.post('/login', async (req, res) => {
 
   try {
     const isAuthenticated = await verifyUser(username, password);
+
     if (isAuthenticated) {
       res.json({ success: true, message: 'Inicio de sesión exitoso' });
     } else {
       res.json({ success: false, message: 'Usuario o contraseña incorrectos' });
     }
   } catch (error) {
-    console.error('Error al verificar usuario:', error);
     res.status(500).json({ success: false, message: 'Error interno del servidor' });
   }
 });
@@ -190,5 +181,22 @@ app.put('/medicamentos/:id', async (req, res) => {
   } catch (error) {
     console.error('Error al actualizar el medicamento:', error);
     res.status(500).json({ message: 'Error interno del servidor' });
+  }
+});
+
+// Ruta para cerrar sesión
+app.post('/logout', (req, res) => {
+  // Si estás usando sessions
+  if (req.session) {
+      req.session.destroy(err => {
+          if (err) {
+              return res.status(500).json({ message: 'Error al cerrar sesión' });
+          }
+          res.clearCookie('connect.sid'); // Elimina la cookie de sesión (ajusta el nombre según tu configuración)
+          return res.status(200).json({ message: 'Sesión cerrada correctamente' });
+      });
+  } else {
+      // Si no estás usando sessions o ya no hay sesión
+      res.status(200).json({ message: 'Sesión cerrada correctamente' });
   }
 });

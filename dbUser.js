@@ -1,17 +1,28 @@
 const Pool = require('pg').Pool;
 require('dotenv').config();
-
+        
 const pool = new Pool({
-    user: process.env.DB_USER,
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
+    user: process.env.DB_USER,
     ssl: {
         // In a production environment, you should properly configure SSL certificates.
         rejectUnauthorized: false
     }
 });
+
+async function verificarConexion() {
+    try {
+        const res = await pool.query('SELECT NOW()');
+        console.log('✅ Conexión exitosa a la base de datos. Fecha y hora:', res.rows[0].now);
+    } catch (error) {
+        console.error('❌ Error al conectar a la base de datos:', error.message);
+    }
+}
+
+verificarConexion(); 
 
 async function getUsers() {
     const client = await pool.connect();
@@ -28,10 +39,9 @@ async function verifyUser(username, password) {
     try {
         const result = await client.query('SELECT * FROM usuarios WHERE nombre = $1 AND password = $2', [username, password]);
         return result.rows.length > 0;
-    } catch {
-        console.error('Verifica el usuario y la contraseña', error);
+    } catch (error) {
+        console.error('Error al verificar usuario y contraseña:', error);
         return false;
-
     } finally {
         client.release();
     }
