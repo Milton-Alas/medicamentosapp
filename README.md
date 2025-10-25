@@ -115,7 +115,6 @@ medicamentosapp/
 
 La base de datos PostgreSQL contiene las siguientes tablas principales:
 - `medicamentos`: Almacena la información de los medicamentos
-- `tipos`: Catálogo de tipos de medicamentos
 - `usuarios`: Información de usuarios y acceso
 
 Si deseas contribuir al proyecto y necesitas la estructura completa de la base de datos, contacta al autor.
